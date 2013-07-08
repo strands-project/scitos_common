@@ -10,15 +10,15 @@
       <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423" iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.3"/>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <geometry>
-        <cylinder length="0.6" radius="0.2"/>
-        <!-- <mesh filename="package://strands_morse_2dnav/scitosA5.dae"/> -->
+        <!-- <cylinder length="0.6" radius="0.2"/> -->
+        <mesh filename="package://scitos_description/meshes/scitos.dae"/>
       </geometry>
-      <material name="Red"/>
+      <!-- <material name="Red"/> -->
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0.3"/>
       <geometry>
         <cylinder length="0.6" radius="0.2"/>
         <!-- <mesh filename="package://strands_morse_2dnav/scitosA5.stl"/> -->
