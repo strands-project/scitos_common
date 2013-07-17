@@ -2,6 +2,12 @@
     <!-- Robot -->
     <param name="robot_description" command="cat $(find scitos_description)/urdf/scitos.urdf"/>
 
+    <!-- Joint state publisher to accumulate joints -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <!-- include the pan/tilt unit joint states -->
+      <rosparam param="source_list">[/ptu/state]</rosparam>
+    </node>
+
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 
 </launch>
