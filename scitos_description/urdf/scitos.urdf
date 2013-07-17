@@ -3,6 +3,13 @@
   <material name="Red">
     <color rgba="0.8 0.0 0.0 1.0"/>
   </material>
+  <material name="Black">
+    <color rgba="0.02 0.02 0.02 1.0"/>
+  </material>
+  <material name="Aluminium">
+    <color rgba="0.65 0.65 0.65 1.0"/>
+  </material>
+
   <link name="base_link">
     <inertial>
       <mass value="74.5"/>
@@ -11,11 +18,10 @@
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0"/>
-      <geometry>
-        <!-- <cylinder length="0.6" radius="0.2"/> -->
-        <mesh filename="package://scitos_description/meshes/scitos.dae"/>
-      </geometry>
       <!-- <material name="Red"/> -->
+      <geometry>
+	<box size="0 0 0" />
+      </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.3"/>
@@ -35,23 +41,28 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0.01 0.01 0.01"/>
+        <!-- <cylinder length="0.6" radius="0.2"/> -->
+        <mesh filename="package://scitos_description/meshes/scitos.dae"/>
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
-             surface of the collision box matches the top surface of the PR2 base -->
       <origin rpy="0 0 0" xyz="0 0 0.071"/>
       <geometry>
         <box size="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
+
+
+  <!-- Base footprint -> base_link -->
   <joint name="base_footprint_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.051"/>
     <child link="base_link"/>
     <parent link="base_footprint"/>
   </joint>
+
+  <!-- base_link -> base_laser_link -->
   <joint name="base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <!-- Match the laser with the robot model:
@@ -61,6 +72,9 @@
     <parent link="base_link"/>
     <child link="base_laser_link"/>
   </joint>
+
+
+  <!-- the laser -->
   <link name="base_laser_link" type="laser">
     <inertial>
       <mass value="0.001"/>
@@ -68,47 +82,136 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
-  <joint name="ptz_z_joint" type="fixed">
-    <axis xyz="0 0 1"/>
-    <!-- Match the laser with the robot model:
-         self.scan.translate(x=0.30, z=0.386) -->
+
+  <!-- Pan-Tilt lower motor -->
+  <link name="ptu_pan_motor">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+      <origin/>
+    </inertial>
+    <visual>
+      <origin xyz="0 -0.015 0"/>
+      <geometry>
+        <box size="0.04 .07 .05"/>
+      </geometry>
+      <material name="Black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0.015 0"/>
+      <geometry>
+        <box size="0.04 .07 .05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- base_link -> pantilt -->
+  <joint name="pantilt_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 1.534"/>
-    <!-- <origin rpy="0 0 0" xyz="0.275 0.0 0.252"/> -->
     <parent link="base_link"/>
-    <child link="ptz_mid_link"/>
+    <child link="ptu_pan_motor"/>
   </joint>
-  <link name="ptz_mid_link">
+
+  <!-- pantilt upper motor -->
+  <link name="ptu_tilt_motor">
     <inertial>
-      <mass value="0.001"/>
-      <origin rpy="0 0 0" xyz="0 0 0.0"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+      <mass value="1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+      <origin/>
     </inertial>
+    <visual>
+      <origin/>
+      <geometry>
+        <box size="0.04 .04 .06"/>
+      </geometry>
+      <material name="Black"/>
+    </visual>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size="0.04 .04 .06"/>
+      </geometry>
+    </collision>
   </link>
-  <joint name="ptz_y_joint" type="fixed">
-    <axis xyz="0 1 0"/>
-    <!-- Match the laser with the robot model:
-         self.scan.translate(x=0.30, z=0.386) -->
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.043"/>
-    <!-- <origin rpy="0 0 0" xyz="0.275 0.0 0.252"/> -->
-    <parent link="ptz_mid_link"/>
-    <child link="ptz_link"/>
+
+  <!-- pan joint -->
+  <joint name="pan" type="continuous">
+    <origin xyz="0 0 .055"/>
+    <axis xyz="0 0 1"/>
+    <parent link="ptu_pan_motor"/>
+    <child link="ptu_tilt_motor"/>
   </joint>
-  <link name="ptz_link">
+
+  <!-- the top aluminium plate on the ptu unit -->
+  <link name="ptu_mount">
     <inertial>
-      <mass value="0.001"/>
-      <origin rpy="0 0 0" xyz="0 0 0.0"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+      <mass value="1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+      <origin/>
     </inertial>
+    <visual>
+      <origin/>
+      <geometry>
+        <box size=" .06 .27 0.004 "/>
+      </geometry>
+      <material name="Aluminium"/>
+    </visual>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size=" .03 .27 .004"/>
+      </geometry>
+    </collision>
   </link>
+
+  <!-- tilt joint -->
+  <joint name="tilt" type="continuous">
+    <origin xyz="0 0 .043"/>
+    <axis xyz="0 -1 0"/>
+    <parent link="ptu_tilt_motor"/>
+    <child link="ptu_mount"/>
+  </joint>
+
+  <!-- xtion camera on head -->
+  <link name="head_xtion_link">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://scitos_description/meshes/xtion.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.071"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ptu plate -> xtion -->
+  <joint name="head_xtion_joint" type="fixed" >
+    <origin rpy="3.14 0 0" xyz="0 0 0.03" />
+    <axis xyz="0 0 1"/>
+    <parent link="ptu_mount"/>
+    <child link="head_xtion_link"/>
+
+  </joint>
+
+  
+
+<!--
+
   <joint name="camera_joint" type="fixed">
-    <!-- <axis xyz="0 1 0"/> -->
-    <!-- Match the laser with the robot model:
-         self.scan.translate(x=0.30, z=0.386) -->
     <origin rpy="0 0 0" xyz="0.0 0.0 0.07"/>
-    <!-- <origin rpy="0 0 0" xyz="0.275 0.0 0.252"/> -->
-    <parent link="ptz_link"/>
+       <parent link="ptz_link"/>
     <child link="camera_link"/>
   </joint>
+
   <link name="camera_link" type="camera">
     <inertial>
       <mass value="0.001"/>
@@ -116,16 +219,15 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
+
   <joint name="kinect_joint" type="fixed">
     <axis xyz="0 0 1"/>
-    <!-- Match the laser with the robot model:
-         self.scan.translate(x=0.30, z=0.386) -->
     <origin rpy="0 0 0" xyz="0.0 0.0 1.698"/>
-    <!-- THE MEASURENT IN THE KINECT JOINT IS ACTUALLY FROM THE BASE_LINK AND NOT THE FOOTPRINT AS IN THE SPEC -->
-    <!-- <origin rpy="0 0 0" xyz="0.275 0.0 0.252"/> -->
+    - THE MEASURENT IN THE KINECT JOINT IS ACTUALLY FROM THE BASE_LINK AND NOT THE FOOTPRINT AS IN THE SPEC 
     <parent link="base_link"/>
     <child link="kinect_link"/>
   </joint>
+
   <link name="kinect_link" type="kinect">
     <inertial>
       <mass value="0.001"/>
@@ -133,5 +235,5 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
   </link>
-
+-->
 </robot>
