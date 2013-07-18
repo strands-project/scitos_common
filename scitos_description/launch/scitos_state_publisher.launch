@@ -1,6 +1,8 @@
 <launch> 
     <!-- Robot -->
-    <param name="robot_description" command="cat $(find scitos_description)/urdf/scitos.urdf"/>
+    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find scitos_description)/urdf/scitos.urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+<!--    <param name="robot_description" command="cat $(find scitos_description)/urdf/scitos.urdf"/> -->
 
     <!-- Joint state publisher to accumulate joints -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
