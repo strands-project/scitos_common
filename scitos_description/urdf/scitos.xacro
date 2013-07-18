@@ -6,39 +6,8 @@
        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- calibration params -->
-  <!-- front laser -->
-  <property name="front_laser_scan_trans_x" value="0.30" />
-  <property name="front_laser_scan_trans_y" value="0" />
-  <property name="front_laser_scan_trans_z" value="0.386" />
-  <property name="front_laser_scan_rot_x" value="0.0" />
-  <property name="front_laser_scan_rot_y" value="0.0" />
-  <property name="front_laser_scan_rot_z" value="0.0" />
-
-  <!-- the pan tilt unit -->
-  <property name="pan_tilt_base_plate_trans_x" value="0.0" />
-  <property name="pan_tilt_base_plate_trans_y" value="0.0" />
-  <property name="pan_tilt_base_plate_trans_z" value="1.585" />
-  <property name="pan_tilt_base_plate_rot_x" value="0.0" />
-  <property name="pan_tilt_base_plate_rot_y" value="0.0" />
-  <property name="pan_tilt_base_plate_rot_z" value="0.0" />
-
-  <!-- the head_xtion relative to the ptu top mount frame -->
-  <property name="head_xtion_trans_x" value="0.0" />
-  <property name="head_xtion_trans_y" value="0.0" />
-  <property name="head_xtion_trans_z" value="0.03" />
-  <property name="head_xtion_rot_x" value="3.14" />
-  <property name="head_xtion_rot_y" value="0.0" />
-  <property name="head_xtion_rot_z" value="0.0" />
-
-  <!-- video camera relative to the ptu top mount frame -->
-  <property name="head_stereo_trans_x" value="0" />
-  <property name="head_stereo_trans_y" value="0" />
-  <property name="head_stereo_trans_z" value="0.03" />
-  <property name="head_stereo_rot_x" value="3.14" />
-  <property name="head_stereo_rot_y" value="0.0" />
-  <property name="head_stereo_rot_z" value="0.0" />
-
+  <!-- calibration data -->
+  <include filename="$(find scitos_description)/urdf/scitos_calibration.xacro" />
 
   <!-- materials -->
   <material name="Red">
