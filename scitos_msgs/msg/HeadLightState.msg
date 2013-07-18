@@ -5,7 +5,6 @@
 # LEDPhaseX is frequency of fading?? in???
 # LEDAmplitudeX is the brightness, 0...1.0
 #
-Header header
 float32 HeadLightInterval 
 string LEDState0 
 float32 LEDPhase0
