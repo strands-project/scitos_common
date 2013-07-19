@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.67.0 r57123</authoring_tool>
     </contributor>
-    <created>2013-07-19T15:49:22</created>
-    <modified>2013-07-19T15:49:22</modified>
+    <created>2013-07-19T16:25:18</created>
+    <modified>2013-07-19T16:25:18</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -240,7 +240,7 @@
           </instance_geometry>
         </node>
         <node id="Cube_001" name="Cube_001" type="NODE">
-          <matrix sid="transform">-0.07645833 1.06328e-7 0 0.0448945 -1.0269e-7 -0.07916667 0 0.001270061 0 0 0.075 0.02286 0 0 0 1</matrix>
+          <matrix sid="transform">-0.07645833 1.06328e-7 0 0.04489453 -1.0269e-7 -0.07916667 0 -0.01904994 0 0 0.075 0.02286 0 0 0 1</matrix>
           <instance_geometry url="#Cube-mesh">
             <bind_material>
               <technique_common>
@@ -250,7 +250,7 @@
           </instance_geometry>
         </node>
         <node id="Cylinder" name="Cylinder" type="NODE">
-          <matrix sid="transform">1.67886e-8 3.35772e-8 -0.02916667 0.077089 0 -0.025 -3.91734e-8 9.86366e-8 -0.025 2.25486e-14 -1.95867e-8 0.02286 0 0 0 1</matrix>
+          <matrix sid="transform">1.67886e-8 3.35772e-8 -0.02916667 0.077089 0 -0.025 -3.91734e-8 -0.01904994 -0.025 2.25486e-14 -1.95867e-8 0.02286 0 0 0 1</matrix>
           <instance_geometry url="#Cylinder-mesh">
             <bind_material>
               <technique_common>
