@@ -20,28 +20,6 @@
     <color rgba="0.65 0.65 0.65 1.0"/>
   </material>
 
-
-  <!-- Base link is the actual robot body -->
-  <link name="base_link">
-    <inertial>
-      <mass value="74.5"/>
-      <origin xyz="-0.061 0.0 0.1465"/>
-      <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423" iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726"/>
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.0"/>
-      <geometry>
-	<mesh filename="package://scitos_description/meshes/scitos.dae"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.3"/>
-      <geometry>
-        <cylinder length="0.6" radius="0.2"/>
-      </geometry>
-    </collision>
-  </link>
-
   <!-- base_footprint : a fictional link that is on the floor plane, needed for move_base -->
   <link name="base_footprint">
     <inertial>
@@ -57,18 +35,40 @@
       <material name="Red"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.071"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <box size="0 0 0"/>
       </geometry>
     </collision>
   </link>
 
+  <!-- Base link is the actual robot body -->
+  <link name="base_link">
+    <inertial>
+      <mass value="74.5"/>
+      <origin xyz="-0.061 0.0 0.1465"/>
+      <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423" iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+	<mesh filename="package://scitos_description/meshes/scitos.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.3"/>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+    </collision>
+  </link>
+
+
   <!-- Base footprint -> base_link -->
   <joint name="base_footprint_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.051"/>
-    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.021"/>
     <parent link="base_footprint"/>
+    <child link="base_link"/>
   </joint>
 
   <!-- base_link -> base_laser_link -->
@@ -85,9 +85,15 @@
   <link name="base_laser_link" type="laser">
     <inertial>
       <mass value="0.001"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <geometry>
+	<cylinder length="0.15" radius="0.04"/>
+      </geometry>
+    </visual>
   </link>
 
   <!-- Pan-Tilt lower motor -->
@@ -98,15 +104,15 @@
       <origin/>
     </inertial>
     <visual>
-      <origin xyz="0 -0.015 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.04 .07 .05"/>
+	<mesh filename="package://scitos_description/meshes/pantil0_1.dae"/>
       </geometry>
       <material name="Black"/>
     </visual>
     <collision>
       <origin xyz="0 0.015 0"/>
-      <geometry>
+      <geometry>  
         <box size="0.04 .07 .05"/>
       </geometry>
     </collision>
@@ -128,9 +134,9 @@
       <origin/>
     </inertial>
     <visual>
-      <origin/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.04 .04 .06"/>
+	<mesh filename="package://scitos_description/meshes/pantil1_1.dae"/>
       </geometry>
       <material name="Black"/>
     </visual>
@@ -144,13 +150,45 @@
 
   <!-- pan joint -->
   <joint name="pan" type="continuous">
-    <origin xyz="0 0 .055"/>
-    <axis xyz="0 0 1"/>
+    <origin xyz="0 0 0.04572" rpy="1.57 0 0"/>
+    <axis xyz="0 1 0"/>
     <parent link="ptu_pan_motor"/>
     <child link="ptu_tilt_motor"/>
   </joint>
 
-  <!-- the top aluminium plate on the ptu unit -->
+
+  <!-- the top pantilt hinge bracket that joints the tilt motor to the aluminium plate -->
+  <link name="ptu_hinge">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+      <origin/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://scitos_description/meshes/pantil2_1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size=" .03 .27 .004"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- tilt joint -->
+  <joint name="tilt" type="continuous">
+    <origin xyz="0 0.045974 0" rpy="-1.57 0 0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="ptu_tilt_motor"/>
+    <child link="ptu_hinge"/>
+  </joint>
+
+
+  <!-- ptu_mount: the top aluminium plate on the ptu unit -->
   <link name="ptu_mount">
     <inertial>
       <mass value="1"/>
@@ -158,9 +196,9 @@
       <origin/>
     </inertial>
     <visual>
-      <origin/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size=" .06 .27 0.004 "/>
+	<mesh filename="package://scitos_description/meshes/pantil3_1.dae"/>
       </geometry>
       <material name="Aluminium"/>
     </visual>
@@ -172,11 +210,10 @@
     </collision>
   </link>
 
-  <!-- tilt joint -->
-  <joint name="tilt" type="continuous">
-    <origin xyz="0 0 .043"/>
-    <axis xyz="0 -1 0"/>
-    <parent link="ptu_tilt_motor"/>
+  <!-- ptu_hing -> ptu_mount -->
+  <joint name="hinge_to_mount" type="fixed">
+    <origin xyz="0 0 0.039116" rpy="0 0 0"/>
+    <parent link="ptu_hinge"/>
     <child link="ptu_mount"/>
   </joint>
 
