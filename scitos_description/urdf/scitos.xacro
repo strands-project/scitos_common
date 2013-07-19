@@ -156,8 +156,9 @@
     <child link="ptu_tilt_motor"/>
   </joint>
 
-  <!-- the top aluminium plate on the ptu unit -->
-  <link name="ptu_mount">
+
+  <!-- the top pantilt hinge bracket that joints the tilt motor to the aluminium plate -->
+  <link name="ptu_hinge">
     <inertial>
       <mass value="1"/>
       <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
@@ -167,6 +168,37 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
 	<mesh filename="package://scitos_description/meshes/pantil2_1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size=" .03 .27 .004"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- tilt joint -->
+  <joint name="tilt" type="continuous">
+    <origin xyz="0 0.045974 0" rpy="-1.57 0 0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="ptu_tilt_motor"/>
+    <child link="ptu_hinge"/>
+  </joint>
+
+
+  <!-- ptu_mount: the top aluminium plate on the ptu unit -->
+  <link name="ptu_mount">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100"/>
+      <origin/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<mesh filename="package://scitos_description/meshes/pantil3_1.dae"/>
       </geometry>
       <material name="Aluminium"/>
     </visual>
@@ -178,11 +210,10 @@
     </collision>
   </link>
 
-  <!-- tilt joint -->
-  <joint name="tilt" type="continuous">
-    <origin xyz="0 0.045974 0" rpy="-1.57 0 0"/>
-    <axis xyz="0 1 0"/>
-    <parent link="ptu_tilt_motor"/>
+  <!-- ptu_hing -> ptu_mount -->
+  <joint name="hinge_to_mount" type="fixed">
+    <origin xyz="0 0 0.039116" rpy="0 0 0"/>
+    <parent link="ptu_hinge"/>
     <child link="ptu_mount"/>
   </joint>
 
