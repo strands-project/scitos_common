@@ -106,7 +106,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://scitos_description/meshes/pantil0_1.dae"/>
+	<mesh filename="package://scitos_description/meshes/pantilt0.dae"/>
       </geometry>
       <material name="Black"/>
     </visual>
@@ -136,7 +136,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://scitos_description/meshes/pantil1_1.dae"/>
+	<mesh filename="package://scitos_description/meshes/pantilt1.dae"/>
       </geometry>
       <material name="Black"/>
     </visual>
@@ -167,7 +167,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://scitos_description/meshes/pantil2_1.dae"/>
+	<mesh filename="package://scitos_description/meshes/pantilt2.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -198,7 +198,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://scitos_description/meshes/pantil3_1.dae"/>
+	<mesh filename="package://scitos_description/meshes/pantilt3.dae"/>
       </geometry>
       <material name="Aluminium"/>
     </visual>
