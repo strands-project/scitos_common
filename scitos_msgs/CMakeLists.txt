@@ -25,6 +25,7 @@ add_message_files(
    BatteryState.msg
    ChargerStatus.msg
    HeadLightState.msg
+   MotorStatus.msg
 )
 
 ## Generate services in the 'srv' folder
