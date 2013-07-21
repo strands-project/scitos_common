@@ -19,6 +19,33 @@
   <material name="Aluminium">
     <color rgba="0.65 0.65 0.65 1.0"/>
   </material>
+  <material name="white">
+	<color rgba="1 1 1 1" />
+  </material>
+  <material name="black">
+	<color rgba="0 0 0 1" />
+  </material>
+  <material name="red">
+	<color rgba="1 0 0 1" />
+  </material>
+  <material name="green">
+	<color rgba="0 1 0 1" />
+  </material>
+  <material name="blue">
+	<color rgba="0 0 1 1" />
+  </material>
+  <material name="yellow">
+	<color rgba="1 1 0 1" />
+  </material>
+  <material name="darkgray">
+	<color rgba="0.3 0.3 0.3 1" />
+  </material>
+  <material name="gray">
+	<color rgba="0.7 0.7 0.7 1" />
+  </material>
+  <material name="glass">
+	<color rgba="1 1 1 0.2" />
+  </material>
 
   <!-- base_footprint : a fictional link that is on the floor plane, needed for move_base -->
   <link name="base_footprint">
@@ -52,7 +79,8 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-	<mesh filename="package://scitos_description/meshes/scitos.dae"/>
+<!--	<mesh filename="package://scitos_description/meshes/scitos.dae"/> -->
+        <cylinder length="0.0" radius="0.2"/>
       </geometry>
     </visual>
     <collision>
@@ -246,5 +274,109 @@
     <parent link="ptu_mount"/>
     <child link="head_xtion_link"/>
   </joint>
+
+  <!-- HEAD -->
+  <joint name="HMIToHeadBase" type="fixed">
+	<parent link="base_link" />
+	<child link="HeadBaseFrame" />
+	<origin xyz="0 0 0.7375" />
+  </joint>
+
+  <link name="HeadSwivelFrame">
+	<visual>
+	  <geometry>
+		<cylinder length="0.1" radius="0.05" />
+	  </geometry>
+	  <material name="gray" />
+	</visual>
+  </link>
+
+  <joint name="HeadPan" type="continuous">
+	<parent link="HeadBaseFrame" />
+	<child link="HeadSwivelFrame" />
+	<axis xyz="0 0 1" />
+  </joint>
+  
+  <link name="HeadFrame">
+	<visual>
+	  <geometry>
+		<box size="0.175 0.19 0.07" />
+	  </geometry>
+	  <origin xyz="0 0 0.02" rpy="0 0 0" />
+	  <material name="gray" />
+	</visual>
+  </link>
+
+  <joint name="HeadTilt" type="continuous">
+	<parent link="HeadSwivelFrame" />
+	<child link="HeadFrame" />
+	<axis xyz="0 1 0" />
+  </joint>
+  
+  <link name="LeftEyeFrame">
+	<visual>
+	  <geometry>
+		<sphere radius="0.025" />
+	  </geometry>
+	  <material name="white" />
+	</visual>
+  </link>
+
+  <joint name="HeadToLeftEyeBase" type="fixed">
+	<parent link="HeadFrame" />
+	<child link="LeftEyeBaseFrame" />
+	<origin xyz="0.08 0.05 0.02" />
+  </joint>
+  <joint name="EyesTilt" type="continuous">
+	<parent link="LeftEyeBaseFrame" />
+	<child link="LeftEyeSwivelFrame" />
+	<axis xyz="0 1 0" />
+  </joint>
+  <joint name="EyesPan" type="continuous">
+	<parent link="LeftEyeSwivelFrame" />
+	<child link="LeftEyeFrame" />
+	<axis xyz="0 0 1" />
+  </joint>
+  
+  <link name="RightEyeFrame">
+	<visual>
+	  <geometry>
+		<sphere radius="0.025" />
+	  </geometry>
+	  <material name="white" />
+	</visual>
+  </link>
+
+  <joint name="HeadToRightEyeBase" type="fixed">
+	<parent link="HeadFrame" />
+	<child link="RightEyeBaseFrame" />
+	<origin xyz="0.08 -0.05 0.02" />
+  </joint>
+
+  <joint name="RightEyeBaseToRightEyeSwivel" type="continuous">
+	<parent link="RightEyeBaseFrame" />
+	<child link="RightEyeSwivelFrame" />
+	<axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="RightEyeSwivelToRightEye" type="continuous">
+	<parent link="RightEyeSwivelFrame" />
+	<child link="RightEyeFrame" />
+	<axis xyz="0 0 1" />
+  </joint>
+
+  <link name="HeadBaseFrame">
+	<visual>
+	  <geometry>
+		<sphere radius="0.15" />
+	  </geometry>
+	  <material name="glass"/>
+	</visual>
+  </link>
+
+  <link name="RightEyeBaseFrame" />
+  <link name="LeftEyeBaseFrame" />
+  <link name="RightEyeSwivelFrame" />
+  <link name="LeftEyeSwivelFrame" />
 
 </robot>
