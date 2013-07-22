@@ -116,10 +116,11 @@
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.09"/>
       <geometry>
-	<cylinder length="0.15" radius="0.04"/>
+		<cylinder length="0.18" radius="0.04"/>
       </geometry>
+	  <material name="yellow" />
     </visual>
   </link>
 
@@ -299,13 +300,23 @@
 
 
   <!-- HEAD -->
-  <joint name="HMIToHeadBase" type="fixed">
+
+  <link name="head_base_frame">
+	<visual>
+	  <geometry>
+		<sphere radius="0.15" />
+	  </geometry>
+	  <material name="glass"/>
+	</visual>
+  </link>
+
+  <joint name="base_link_to_head" type="fixed">
 	<parent link="base_link" />
-	<child link="HeadBaseFrame" />
-	<origin xyz="0 0 0.7375" />
+	<child link="head_base_frame" />
+	<origin xyz="-0.075 0 1.32" />
   </joint>
 
-  <link name="HeadSwivelFrame">
+  <link name="head_swivel_frame">
 	<visual>
 	  <geometry>
 		<cylinder length="0.1" radius="0.05" />
@@ -315,12 +326,12 @@
   </link>
 
   <joint name="HeadPan" type="continuous">
-	<parent link="HeadBaseFrame" />
-	<child link="HeadSwivelFrame" />
+	<parent link="head_base_frame" />
+	<child link="head_swivel_frame" />
 	<axis xyz="0 0 1" />
   </joint>
   
-  <link name="HeadFrame">
+  <link name="head_frame">
 	<visual>
 	  <geometry>
 		<box size="0.175 0.19 0.07" />
@@ -331,12 +342,12 @@
   </link>
 
   <joint name="HeadTilt" type="continuous">
-	<parent link="HeadSwivelFrame" />
-	<child link="HeadFrame" />
+	<parent link="head_swivel_frame" />
+	<child link="head_frame" />
 	<axis xyz="0 1 0" />
   </joint>
   
-  <link name="LeftEyeFrame">
+  <link name="left_eye_frame">
 	<visual>
 	  <geometry>
 		<sphere radius="0.025" />
@@ -346,22 +357,22 @@
   </link>
 
   <joint name="HeadToLeftEyeBase" type="fixed">
-	<parent link="HeadFrame" />
-	<child link="LeftEyeBaseFrame" />
+	<parent link="head_frame" />
+	<child link="left_eye_base_frame" />
 	<origin xyz="0.08 0.05 0.02" />
   </joint>
   <joint name="EyesTilt" type="continuous">
-	<parent link="LeftEyeBaseFrame" />
-	<child link="LeftEyeSwivelFrame" />
+	<parent link="left_eye_base_frame" />
+	<child link="left_eye_swivel_frame" />
 	<axis xyz="0 1 0" />
   </joint>
   <joint name="EyesPan" type="continuous">
-	<parent link="LeftEyeSwivelFrame" />
-	<child link="LeftEyeFrame" />
+	<parent link="left_eye_swivel_frame" />
+	<child link="left_eye_frame" />
 	<axis xyz="0 0 1" />
   </joint>
   
-  <link name="RightEyeFrame">
+  <link name="right_eye_frame">
 	<visual>
 	  <geometry>
 		<sphere radius="0.025" />
@@ -370,40 +381,31 @@
 	</visual>
   </link>
 
-  <joint name="HeadToRightEyeBase" type="fixed">
-	<parent link="HeadFrame" />
-	<child link="RightEyeBaseFrame" />
+  <joint name="head_to_right_eye_base" type="fixed">
+	<parent link="head_frame" />
+	<child link="right_eye_base_frame" />
 	<origin xyz="0.08 -0.05 0.02" />
   </joint>
 
   <joint name="RightEyeBaseToRightEyeSwivel" type="continuous">
-	<parent link="RightEyeBaseFrame" />
-	<child link="RightEyeSwivelFrame" />
+	<parent link="right_eye_base_frame" />
+	<child link="right_eye_swivel_frame" />
 	<axis xyz="0 1 0" />
   </joint>
 
   <joint name="RightEyeSwivelToRightEye" type="continuous">
-	<parent link="RightEyeSwivelFrame" />
-	<child link="RightEyeFrame" />
+	<parent link="right_eye_swivel_frame" />
+	<child link="right_eye_frame" />
 	<axis xyz="0 0 1" />
   </joint>
 
-  <link name="HeadBaseFrame">
-	<visual>
-	  <geometry>
-		<sphere radius="0.15" />
-	  </geometry>
-	  <material name="glass"/>
-	</visual>
-  </link>
-
-  <link name="RightEyeBaseFrame" />
-  <link name="LeftEyeBaseFrame" />
-  <link name="RightEyeSwivelFrame" />
-  <link name="LeftEyeSwivelFrame" />
+  <link name="right_eye_base_frame" />
+  <link name="left_eye_base_frame" />
+  <link name="right_eye_swivel_frame" />
+  <link name="left_eye_swivel_frame" />
 
   <!-- xtion camera internal frames (these moved from openni_launch/kinect_frames.launch) -->
-
+<!-- in need of fixing...
   <link name="head_xtion_depth_frame" />
   <link name="head_xtion_rgb_frame" />
   <link name="head_xtion_depth_optical_frame" />
@@ -433,6 +435,6 @@
 	<parent link="head_xtion_rgb_frame" />
 	<child link="head_xtion_rgb_optical_frame" />
   </joint>
-
+-->
 
 </robot>
