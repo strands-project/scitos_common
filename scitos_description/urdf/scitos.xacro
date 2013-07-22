@@ -79,8 +79,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-<!--	<mesh filename="package://scitos_description/meshes/scitos.dae"/> -->
-        <cylinder length="0.0" radius="0.2"/>
+		<mesh filename="package://scitos_description/meshes/scitos_1.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -123,6 +122,29 @@
       </geometry>
     </visual>
   </link>
+
+
+  <!-- base_halo is the metal frame that the ptu sit on top of-->
+  <link name="base_halo">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+	<mesh filename="package://scitos_description/meshes/head_frame.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.25"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.25"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_halo_joint" type="fixed" >
+    <origin  xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link" />
+    <child link="base_halo" />
+  </joint>
 
   <!-- Pan-Tilt lower motor -->
   <link name="ptu_pan_motor">
@@ -275,6 +297,7 @@
     <child link="head_xtion_link"/>
   </joint>
 
+
   <!-- HEAD -->
   <joint name="HMIToHeadBase" type="fixed">
 	<parent link="base_link" />
@@ -378,5 +401,38 @@
   <link name="LeftEyeBaseFrame" />
   <link name="RightEyeSwivelFrame" />
   <link name="LeftEyeSwivelFrame" />
+
+  <!-- xtion camera internal frames (these moved from openni_launch/kinect_frames.launch) -->
+
+  <link name="head_xtion_depth_frame" />
+  <link name="head_xtion_rgb_frame" />
+  <link name="head_xtion_depth_optical_frame" />
+  <link name="head_xtion_rgb_optical_frame" />
+
+  <joint name="head_xtion_base_link" type="fixed">
+        <origin xyz="0 -0.02  0"
+		rpy="0 0 0" />
+	<parent link="head_xtion_link" />
+	<child link="head_xtion_depth_frame" />
+  </joint>
+  <joint name="head_xtion_base_link2" type="fixed" >
+        <origin xyz="0 -0.045  0"
+		rpy="0 0 0" />
+	<parent link="head_xtion_link" />
+	<child link="head_xtion_rgb_frame" />
+  </joint>
+  <joint name="head_xtion_base_link3"  type="fixed">
+        <origin xyz="0 0 0"
+		rpy="-1.57 0 1.57" />
+	<parent link="head_xtion_depth_frame" />
+	<child link="head_xtion_depth_optical_frame" />
+  </joint>
+  <joint name="head_xtion_base_link4"  type="fixed">
+        <origin xyz="0 0 0"
+		rpy="-1.57 0 1.57" />
+	<parent link="head_xtion_rgb_frame" />
+	<child link="head_xtion_rgb_optical_frame" />
+  </joint>
+
 
 </robot>
