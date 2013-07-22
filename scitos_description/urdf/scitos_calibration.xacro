@@ -2,7 +2,7 @@
 <robot name="scitosA5" xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- calibration params -->
   <!-- front laser -->
-  <property name="front_laser_scan_trans_x" value="0.30" />
+  <property name="front_laser_scan_trans_x" value="0.07" />
   <property name="front_laser_scan_trans_y" value="0" />
   <property name="front_laser_scan_trans_z" value="0.365" />
   <property name="front_laser_scan_rot_x" value="0.0" />
@@ -10,7 +10,7 @@
   <property name="front_laser_scan_rot_z" value="0.0" />
 
   <!-- the pan tilt unit -->
-  <property name="pan_tilt_base_plate_trans_x" value="0.075" />
+  <property name="pan_tilt_base_plate_trans_x" value="-0.075" />
   <property name="pan_tilt_base_plate_trans_y" value="0.0" />
   <property name="pan_tilt_base_plate_trans_z" value="1.5183" />
   <property name="pan_tilt_base_plate_rot_x" value="0.0" />
