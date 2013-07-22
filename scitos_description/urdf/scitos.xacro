@@ -247,4 +247,37 @@
     <child link="head_xtion_link"/>
   </joint>
 
+  <!-- xtion camera internal frames (these moved from openni_launch/kinect_frames.launch) -->
+
+  <link name="head_xtion_depth_frame" />
+  <link name="head_xtion_rgb_frame" />
+  <link name="head_xtion_depth_optical_frame" />
+  <link name="head_xtion_rgb_optical_frame" />
+
+  <joint name="head_xtion_base_link" type="fixed">
+        <origin xyz="0 -0.02  0"
+				rpy="0 0 0" />
+		<parent link="head_xtion_link" />
+		<child link="head_xtion_depth_frame" />
+  </joint>
+  <joint name="head_xtion_base_link2" type="fixed" >
+        <origin xyz="0 -0.045  0"
+				rpy="0 0 0" />
+		<parent link="head_xtion_link" />
+		<child link="head_xtion_rgb_frame" />
+  </joint>
+  <joint name="head_xtion_base_link3"  type="fixed">
+        <origin xyz="0 0 0"
+				rpy="-3.14 0 -3.14" />
+		<parent link="head_xtion_depth_frame" />
+		<child link="head_xtion_depth_optical_frame" />
+  </joint>
+  <joint name="head_xtion_base_link4"  type="fixed">
+        <origin xyz="0 0 0"
+				rpy="-3.14 0 -3.14" />
+		<parent link="head_xtion_rgb_frame" />
+		<child link="head_xtion_rgb_optical_frame" />
+  </joint>
+
+
 </robot>
