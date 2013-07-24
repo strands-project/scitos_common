@@ -21,7 +21,7 @@
   <property name="head_xtion_trans_x" value="0.015" />
   <property name="head_xtion_trans_y" value="0.0" />
   <property name="head_xtion_trans_z" value="0.03" />
-  <property name="head_xtion_rot_x" value="3.14" />
+  <property name="head_xtion_rot_x" value="0" />
   <property name="head_xtion_rot_y" value="0.0" />
   <property name="head_xtion_rot_z" value="0.0" />
 
