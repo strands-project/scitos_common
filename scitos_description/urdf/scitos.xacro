@@ -236,7 +236,7 @@
   <!-- xtion camera on head -->
   <link name="head_xtion_link">
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="3.14 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://scitos_description/meshes/xtion.dae"/>
       </geometry>
@@ -372,14 +372,14 @@
 
   <joint name="head_xtion_base_link" type="fixed" >
     <origin rpy="0 0 0" 
-            xyz="0 -0.02 0" />
+            xyz="0 0.045 0" />
     <parent link="head_xtion_link"/>
     <child link="head_xtion_depth_frame"/>
   </joint>
 
   <joint name="head_xtion_base_link1" type="fixed" >
     <origin rpy="0 0 0" 
-            xyz="0 -0.045 0" />
+            xyz="0 0.02 0" />
     <parent link="head_xtion_link"/>
     <child link="head_xtion_rgb_frame"/>
   </joint>
