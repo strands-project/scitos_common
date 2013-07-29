@@ -14,6 +14,7 @@ bool normal
 bool motor_stopped 
 bool free_run 
 bool emergency_button_pressed
+bool bumper_pressed
 bool bus_error
 bool stall_mode_flag
 bool internal_error_flag 
