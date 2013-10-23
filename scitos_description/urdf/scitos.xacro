@@ -429,14 +429,14 @@
 
   <joint name="chest_xtion_base_link" type="fixed" >
     <origin rpy="0 0 0" 
-            xyz="0 0.045 0" />
+            xyz="0 0 0" />
     <parent link="chest_xtion_link"/>
     <child link="chest_xtion_depth_frame"/>
   </joint>
 
   <joint name="chest_xtion_base_link1" type="fixed" >
     <origin rpy="0 0 0" 
-            xyz="0 0.02 0" />
+            xyz="0 -0.025 0" />
     <parent link="chest_xtion_link"/>
     <child link="chest_xtion_rgb_frame"/>
   </joint>
