@@ -416,7 +416,7 @@
 
   <joint name="chest_xtion_joint" type="fixed" >
     <!-- Rotation y angle from calibrate_chest and z height from calibrate_chest -->
-    <origin rpy="0 0.72 0" xyz="0.10 0 1.10" />
+    <origin rpy="0 0.72 0" xyz="0.12 0 1.10" />
     <parent link="base_link"/>
     <child link="chest_xtion_link"/>
   </joint>
