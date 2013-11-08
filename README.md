@@ -5,6 +5,6 @@ This package contains robot-specific definitions of the SCITOS robot such as the
 
 # calibrate_chest
 
-  * run the calibrate_chest node with the datacentre if you want to store the parameters there
-  * to use these parameters when you launch the bringup next time, be sure to have the datacentre running
-  * the urdf can be updated manually by running chest_calibration_publisher (shouldn't be necessary)
+  * Do `rosrun calibrate_chest calibrate_chest` with the datacentre running if you want to store the parameters there, make sure that the largest visible plane for the chest camera is the floor.
+  * To use these parameters when you launch the bringup next time, be sure to have the datacentre running.
+  * The urdf can be updated manually by doign `rosrun calibrate_chest chest_calibration_publisher`(shouldn't be necessary).
