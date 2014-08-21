@@ -2,8 +2,8 @@
 Changelog for package scitos_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2014-08-21)
+------------------
 * added scitos_msgs to metapackage
 * changed version strings to match convention, fixes a problem to use catkin_make on these packages
 * added scitos urdf to scitos_description, added scitos_common as meta-package

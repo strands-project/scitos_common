@@ -2,8 +2,8 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2014-08-21)
+------------------
 * Adding Machine tag to scitos_state_publisher.launch
 * Adding robot_pose_publish to scitos_state_publisher.launch
   /robot_pose topic is needed by visual_charging node and waypoint_patroller
