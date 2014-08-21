@@ -1,0 +1,10 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package scitos_common
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Forthcoming
+-----------
+* added scitos_msgs to metapackage
+* changed version strings to match convention, fixes a problem to use catkin_make on these packages
+* added scitos urdf to scitos_description, added scitos_common as meta-package
+* Contributors: Chris, Lars Kunze, Marc Hanheide
