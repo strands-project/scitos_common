@@ -2,6 +2,9 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.3 (2014-08-27)
 ------------------
 
