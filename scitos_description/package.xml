@@ -17,5 +17,6 @@
   <author email="nilsbore@gmail.com">Nils Bore</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>calibrate_chest</run_depend>
 
 </package>
