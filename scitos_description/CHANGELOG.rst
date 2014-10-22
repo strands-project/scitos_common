@@ -2,8 +2,8 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2014-10-22)
+------------------
 * Removed the run_depend on calibrate_chest also
 * Removed the chest camera links in the urdf and launch file, added them to strands_description instead
 * Removed the calibrate_chest package, already in strands_movebase and added the package as a run_depend in scitos_desciption
