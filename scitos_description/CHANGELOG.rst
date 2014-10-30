@@ -2,8 +2,8 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2014-10-30)
+------------------
 * Added install targets
 * Contributors: Christian Dondrup
 
