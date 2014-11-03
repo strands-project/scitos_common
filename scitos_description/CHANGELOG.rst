@@ -2,6 +2,12 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* [scitos_common] fixing run dependencies
+  Fixing #43
+* Contributors: Christian Dondrup
+
 0.1.1 (2014-10-30)
 ------------------
 * Added install targets
