@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>scitos_common</name>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <description>
     This package contains robot-specific definitions of the SCITOS robot such
     as the URDF description of the robot's kinematics and dynamics and 3D
