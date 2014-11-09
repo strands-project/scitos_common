@@ -2,8 +2,8 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.3 (2014-11-09)
+------------------
 * removing lie in line (it doesn't do that anymore)
 * final and tested version of loader
 * new machine tags
