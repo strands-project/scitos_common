@@ -2,6 +2,13 @@
 Changelog for package scitos_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#49 <https://github.com/strands-project/scitos_common/issues/49>`_ from gestom/hydro-devel
+  Magnetic stripe detection on/off service.
+* Magnetic stripe detection on/off service.
+* Contributors: Marc Hanheide, Tom Krajnik
+
 0.1.4 (2014-11-14)
 ------------------
 * Added a service for motor force change
