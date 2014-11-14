@@ -6,7 +6,7 @@
 
   <maintainer email="cburbridge@gmail.com">cburbridge</maintainer>
 
-  <license>TODO</license>
+  <license>MIT</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
