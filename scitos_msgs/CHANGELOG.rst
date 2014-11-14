@@ -2,8 +2,8 @@
 Changelog for package scitos_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.4 (2014-11-14)
+------------------
 * Added a service for motor force change
 * Contributors: Jaime Pulido Fentanes
 
