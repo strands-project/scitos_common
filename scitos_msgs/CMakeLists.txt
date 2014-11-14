@@ -35,6 +35,7 @@ add_service_files(
    ResetOdometry.srv
    EmergencyStop.srv
    EnableMotors.srv
+   ChangeForce.srv
 )
 
 ## Generate added messages and services with any dependencies listed here
