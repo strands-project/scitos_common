@@ -36,6 +36,7 @@ add_service_files(
    EmergencyStop.srv
    EnableMotors.srv
    ChangeForce.srv
+   EnableRfid.srv
 )
 
 ## Generate added messages and services with any dependencies listed here
