@@ -6,6 +6,9 @@
 
   <maintainer email="cburbridge@gmail.com">cburbridge</maintainer>
 
+  <author email="cburbridge@gmail.com">cburbridge</author>
+  <author email="tkrajnik@lincoln.ac.uk">Tom Krajnik</author>
+
   <license>MIT</license>
 
   <buildtool_depend>catkin</buildtool_depend>
