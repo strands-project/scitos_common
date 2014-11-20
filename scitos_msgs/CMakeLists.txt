@@ -26,6 +26,7 @@ add_message_files(
    ChargerStatus.msg
    HeadLightState.msg
    MotorStatus.msg
+   BarrierStatus.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -37,6 +38,7 @@ add_service_files(
    EnableMotors.srv
    ChangeForce.srv
    EnableRfid.srv
+   ResetBarrierStop.srv
 )
 
 ## Generate added messages and services with any dependencies listed here
