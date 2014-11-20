@@ -2,6 +2,11 @@
 Changelog for package scitos_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add barrier status message and reset service definitions
+* Contributors: Chris Burbridge
+
 0.1.5 (2014-11-14)
 ------------------
 * Merge pull request `#49 <https://github.com/strands-project/scitos_common/issues/49>`_ from gestom/hydro-devel
