@@ -2,8 +2,8 @@
 Changelog for package scitos_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.6 (2014-11-20)
+------------------
 * Add barrier status message and reset service definitions
 * Contributors: Chris Burbridge
 
