@@ -2,6 +2,11 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Adding respawn flags to scitos_state_publisher.launch
+* Contributors: Christian Dondrup
+
 0.1.7 (2015-04-12)
 ------------------
 * Starting state publisher in robot namespace, setting robot description and robot/robot_description
