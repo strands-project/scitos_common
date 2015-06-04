@@ -39,6 +39,7 @@ add_service_files(
    ChangeForce.srv
    EnableRfid.srv
    ResetBarrierStop.srv
+   SavePersistentErrors.srv
 )
 
 ## Generate added messages and services with any dependencies listed here
