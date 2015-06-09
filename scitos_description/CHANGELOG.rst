@@ -2,6 +2,9 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.8 (2015-05-13)
 ------------------
 * Adding respawn flags to scitos_state_publisher.launch
