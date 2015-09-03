@@ -1010,13 +1010,11 @@
         <node id="Screen" name="Screen" type="NODE">
           <matrix sid="transform">0.8191519 0 -0.5735766 -0.21 0 1 0 0 0.5735766 0 0.8191519 0.8265 0 0 0 1</matrix>
           <node id="screen_screen" name="screen_screen" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">0.09420247 0 -0.001433942 -0.3009106 0 0.1525 0 0 0.06596132 0 0.00204788 0.991092 0 0 0 1</matrix>
+            <matrix sid="transform">0.115000001942 0.0 -2.66181799909e-10 0.0199365899271 0.0 0.1525 0.0 0.0 1.55417400477e-09 0.0 0.00250000016514 0.186970074618 0.0 0.0 0.0 1.0</matrix>
             <instance_geometry url="#Cube_001-mesh"/>
           </node>
           <node id="sc_body1" name="sc_body1" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">0.1249207 0 -0.008603648 -0.2911472 0 0.1735 0 -1.06573e-9 0.08747043 0 0.01228728 0.9765648 0 0 0 1</matrix>
+            <matrix sid="transform">0.152500020594 0.0 1.67951679821e-09 0.019601835604 0.0 0.1735 0.0 -1.06573e-09 -3.01943459957e-08 0.0 0.0149999986965 0.169470034812 0.0 0.0 0.0 1.0</matrix>
             <instance_geometry url="#Cube-mesh">
               <bind_material>
                 <technique_common>
@@ -1026,8 +1024,7 @@
             </instance_geometry>
           </node>
           <node id="sc_body2" name="sc_body2" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">0.8191519 0 -0.5735766 -0.0994709 0 1 0 -5.63917e-9 0.5735766 0 0.8191519 1.115894 0 0 0 1</matrix>
+            <matrix sid="transform">0.999999951341 0.0 0.0 0.256529809751 0.0 1.0 0.0 -5.63917e-09 -5.73576600105e-08 0.0 0.999999869426 0.17366075933 0.0 0.0 0.0 1.0</matrix>
             <instance_geometry url="#Cylinder_002-mesh">
               <bind_material>
                 <technique_common>
@@ -1037,18 +1034,16 @@
             </instance_geometry>
           </node>
           <node id="sc_body3" name="sc_body3" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">0.1105855 0 -0.008603649 -0.2924002 0 0.145 0 0 0.07743285 0 0.01228728 0.9441797 0 0 0 1</matrix>
+            <matrix sid="transform">0.134999993269 0.0 8.60364899116e-10 1.02724639961e-07 0.0 0.145 0.0 0.0 3.35732999734e-09 0.0 0.0149999992701 0.143660413334 0.0 0.0 0.0 1.0</matrix>
             <instance_geometry url="#Cube_002-mesh"/>
           </node>
           <node id="sc_body4" name="sc_body4" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">0.8191519 0 -0.5735766 -0.2407783 0 1 0 0 0.5735766 0 0.8191519 0.870456 0 0 0 1</matrix>
+            <matrix sid="transform">0.999999951341 0.0 0.0 9.1005829983e-08 0.0 1.0 0.0 0.0 -5.73576600105e-08 0.0 0.999999869426 0.0536603978886 0.0 0.0 0.0 1.0
+</matrix>
             <instance_geometry url="#Cylinder_003-mesh"/>
           </node>
           <node id="sc_body5" name="sc_body5" type="NODE">
-            <matrix sid="parentinverse">0.8191519 0 0.5735766 -0.3020391 0 1 0 0 -0.5735766 0 0.8191518 -0.79748 0 0 0 1</matrix>
-            <matrix sid="transform">-5.93377e-7 0 1 -0.1892674 0 0.9 0 0 -0.9 0 -5.90933e-7 0.8265001 0 0 0 1</matrix>
+            <matrix sid="transform">-0.516219426066 0.0 0.819151561055 0.0169832669396 0.0 0.9 0.0 0.0 -0.737236279653 0.0 -0.573577084064 -0.011891603602 0.0 0.0 0.0 1.0</matrix>
             <instance_geometry url="#Cylinder_004-mesh"/>
           </node>
         </node>
