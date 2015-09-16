@@ -422,21 +422,11 @@
           </bind_material>
         </instance_geometry>
         <node id="Depth" name="Depth" type="NODE">
-          <matrix sid="parentinverse">-470.1033 0.3717329 -1.995e-4 -2.3613e-6 -0.3613067 -456.9181 -1.53319e-7 -2.9851e-6 -1.42586e-4 9.06303e-12 335.9903 3.980893 0 0 0 1</matrix>
-          <translate sid="location">-0.004927372 -0.04727566 7.76134e-4</translate>
-          <rotate sid="rotationZ">0 0 1 -179.9547</rotate>
-          <rotate sid="rotationY">0 1 0 2.09405e-5</rotate>
-          <rotate sid="rotationX">1 0 0 -0.001219419</rotate>
-          <scale sid="scale">0.005791401 0.004022005 0.001991105</scale>
+          <matrix sid="transform">2.72255672172 -0.00215285428879 0.0 2.2987974032 0.00209247198369 2.64619594126 0.0 21.6028820507 8.25772702986e-07 -5.2487641005e-14 0.0 4.24166719807 0.0 0.0 0.0 1.0</matrix>
           <instance_geometry url="#gDepth_001-mesh"/>
         </node>
         <node id="RGB" name="RGB" type="NODE">
-          <matrix sid="parentinverse">-470.1033 0.3717329 -1.995e-4 -2.3613e-6 -0.3613067 -456.9181 -1.53319e-7 -2.9851e-6 -1.42586e-4 9.06303e-12 335.9903 3.980893 0 0 0 1</matrix>
-          <translate sid="location">-0.004913696 -0.01996619 8.12016e-4</translate>
-          <rotate sid="rotationZ">0 0 1 -179.9547</rotate>
-          <rotate sid="rotationY">0 1 0 2.09405e-5</rotate>
-          <rotate sid="rotationX">1 0 0 -0.001219419</rotate>
-          <scale sid="scale">0.005791401 0.004022005 0.001991105</scale>
+          <matrix sid="transform">2.72255672172 -0.00149511158246 0.0 2.30252009179 0.00209247198369 1.83772688279 0.0 9.1246859651 8.25772702986e-07 -3.64515519752e-14 0.0 4.25372320007 0.0 0.0 0.0 1.0</matrix>
           <instance_geometry url="#gRGB_001-mesh"/>
         </node>
       </node>
