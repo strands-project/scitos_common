@@ -2,8 +2,8 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.10 (2015-11-18)
+-------------------
 * Fix laser transform.
 * Fix mesh transformations.
 * Contributors: Chris Burbridge
