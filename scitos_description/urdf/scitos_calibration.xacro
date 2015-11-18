@@ -2,9 +2,9 @@
 <robot name="scitosA5" xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- calibration params -->
   <!-- front laser -->
-  <property name="front_laser_scan_trans_x" value="0.07" />
+  <property name="front_laser_scan_trans_x" value="0.109" />
   <property name="front_laser_scan_trans_y" value="0" />
-  <property name="front_laser_scan_trans_z" value="0.365" />
+  <property name="front_laser_scan_trans_z" value="0.385" />
   <property name="front_laser_scan_rot_x" value="0.0" />
   <property name="front_laser_scan_rot_y" value="0.0" />
   <property name="front_laser_scan_rot_z" value="0.0" />
