@@ -2,6 +2,11 @@
 Changelog for package scitos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Don't round laser pose.
+* Contributors: Chris Burbridge
+
 0.1.10 (2015-11-18)
 -------------------
 * Fix laser transform.
