@@ -1,6 +1,7 @@
 <launch> 
 	<arg name="machine" default="localhost" />
 	<arg name="user" default="" />
+  <arg name="tf_prefix" default="" />
 
 
     <machine name="$(arg machine)" address="$(arg machine)" env-loader="$(optenv ROS_ENV_LOADER )" user="$(arg user)" default="true" />
@@ -19,7 +20,9 @@
         <rosparam param="source_list">[/ptu/state]</rosparam>
       </node>
 
-      <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="true"/>
+      <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="true">
+        <param name="tf_prefix" value="$(arg tf_prefix)" />
+      </node>
     </group>
 
     <node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher" respawn="true"/>
