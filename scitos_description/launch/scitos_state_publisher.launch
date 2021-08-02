@@ -1,7 +1,8 @@
 <launch> 
 
     <!-- Robot -->
-    <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find scitos_description)/urdf/scitos_x3.xacro'" />
+    <arg name="urdf_file" default="$(find xacro)/xacro '$(find scitos_description)/urdf/scitos_x3.xacro'" />
+
     <param name="robot_description" command="$(arg urdf_file)" />
     
     <group ns="robot">
@@ -12,10 +13,9 @@
         <!-- include the pan/tilt unit joint states -->
       </node>
 
-      <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="true"/>
+      <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true"/>
     </group>
 
-    <node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher" respawn="true"/>
 
 
 </launch>
