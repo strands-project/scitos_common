@@ -7,7 +7,15 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- calibration data -->
-    <xacro:include filename="$(find scitos_description)/urdf/scitos_calibration_x3.xacro" />
+  <!-- <xacro:include filename="$(find scitos_description)/urdf/scitos_calibration_x3.xacro" /> -->
+
+<!--  <property name="front_laser_scan_trans_x" value="0.292" />
+ <property name="front_laser_scan_trans_y" value="0" />
+<property name="front_laser_scan_trans_z" value="0.150" />
+        <property name="front_laser_scan_rot_x" value="0.0" />
+        <property name="front_laser_scan_rot_y" value="0.0" />
+        <property name="front_laser_scan_rot_z" value="0.0" />-->
+
 
   <!-- materials -->
   <material name="Red">
@@ -91,8 +99,8 @@
   <!-- base_link -> base_laser_link -->
   <joint name="base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
-    <origin rpy="${front_laser_scan_rot_x} ${front_laser_scan_rot_y} ${front_laser_scan_rot_z}"
-	    xyz="${front_laser_scan_trans_x} ${front_laser_scan_trans_y} ${front_laser_scan_trans_z}"  />
+    <origin rpy="0 0 0"
+	    xyz="0 0 0"  />
     <parent link="base_link"/>
     <child link="base_laser_link"/>
   </joint>
