@@ -6,16 +6,6 @@
        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- calibration data -->
-  <!-- <xacro:include filename="$(find scitos_description)/urdf/scitos_calibration_x3.xacro" /> -->
-
-<!--  <property name="front_laser_scan_trans_x" value="0.292" />
- <property name="front_laser_scan_trans_y" value="0" />
-<property name="front_laser_scan_trans_z" value="0.150" />
-        <property name="front_laser_scan_rot_x" value="0.0" />
-        <property name="front_laser_scan_rot_y" value="0.0" />
-        <property name="front_laser_scan_rot_z" value="0.0" />-->
-
 
   <!-- materials -->
   <material name="Red">
@@ -98,9 +88,8 @@
 
   <!-- base_link -> base_laser_link -->
   <joint name="base_laser_joint" type="fixed">
-    <axis xyz="0 1 0"/>
     <origin rpy="0 0 0"
-	    xyz="0.292 0 0.150"  />
+	    xyz="0.293 0 0.147"  />
     <parent link="base_link"/>
     <child link="base_laser_link"/>
   </joint>
@@ -116,4 +105,19 @@
     </visual>
   </link>
 
+  <link name="front_camera_link">
+  </link>
+
+  <!-- base_link -> camera_link -->
+  <joint name="front_camera_joint" type="fixed">
+    <!-- 50 degrees -->
+    <origin rpy="0 0.8726646 0" xyz="0.266 0 0.813"  />
+    <!-- 40 degrees -->
+    <!--    <origin rpy="0 0.6981317 0" xyz="0.266 0 0.813"  /> -->
+	    
+    <parent link="base_link"/>
+    <child link="front_camera_link"/>
+  </joint>
+
+  
 </robot>
